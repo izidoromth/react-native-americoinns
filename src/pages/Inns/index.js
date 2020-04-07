@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Feather } from '@expo/vector-icons'
 import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native';
 
 import styles from './styles';
-import Carousel from 'react-native-snap-carousel';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
@@ -15,12 +15,14 @@ export default function Inns(){
                   {id: '2', innName: 'FortalezaInn', images: ['https://a0.muscache.com/im/pictures/62817947/2bc83a52_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/a612c8ce-bc1b-48eb-8e99-e5c5d85049b9.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/79309304/d7cda214_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817824/0b506e6c_original.jpg?aki_policy=xx_large']}, 
                   {id: '3', innName: 'SalvadorInn', images: ['https://a0.muscache.com/im/pictures/62817824/0b506e6c_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/79309304/d7cda214_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/a612c8ce-bc1b-48eb-8e99-e5c5d85049b9.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817947/2bc83a52_original.jpg?aki_policy=xx_large']}, 
                   {id: '4', innName: 'RioInn', images: ['https://a0.muscache.com/im/pictures/a612c8ce-bc1b-48eb-8e99-e5c5d85049b9.jpg?aki_policy=xx_large', 'https://a0.muscache.com/im/pictures/79309304/d7cda214_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817824/0b506e6c_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817947/2bc83a52_original.jpg?aki_policy=xx_large']}]
-                
+          
+    const [imageIndex, setImageIndex] = useState(0);              
+
     function itemPressed(){
         navigation.navigate('InnDetails');
     }
 
-    function renderItem({item,index}){        
+    function renderItem({item,index}){
 
         function carouselRender({item}){
             return (
@@ -35,7 +37,7 @@ export default function Inns(){
         }
 
         return (       
-            <View style={styles.flatlistItem}>
+            <View style={styles.flatlistItem}>                  
                 <Carousel                         
                     layout={'tinder'}
                     ref={'carousel'}
@@ -43,12 +45,17 @@ export default function Inns(){
                     data={item.images}
                     layoutCardOffset={0}
                     renderItem={carouselRender}
+                    onSnapToItem={(index) => setImageIndex(index)}
                     sliderWidth={350}
-                    itemWidth={340}/>
+                    itemWidth={350}/>                
                 <View style={styles.itemBottomBar}>
                     <Text style={styles.renderItemText}>{item.innName}</Text>
-                    <Text style={styles.renderItemText}>Ver detalhes</Text>
-                </View>
+                    <Text style={styles.renderItemText}>Ver detalhes</Text>                     
+                </View>                  
+                <Pagination
+                    dotsLength={getDotsLength(item.images.length)}
+                    activeDotIndex={imageIndex}
+                    containerStyle={styles.paginationView}/>
             </View>
         )
     }
@@ -68,4 +75,13 @@ export default function Inns(){
                 itemWidth={350}/>
         </View>
     );
+
+    function getDotsLength(length){
+        if (length > 4 ){
+            return 4;
+        }
+        else{
+            return length;
+        }
+    }
 };

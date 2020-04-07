@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { hydrate } from 'react-dom';
 
 export default StyleSheet.create({
     container:{
@@ -22,13 +23,13 @@ export default StyleSheet.create({
         alignSelf: "center"
     },
 
-    flatlist:{        
+    flatlist:{       
     },
 
-    flatlistItem:{        
-        marginBottom: 15,  
+    flatlistItem:{  
+        marginBottom: 15, 
         backgroundColor: "#F5F1F1",
-        borderRadius: 5
+        borderRadius: 5,
     },
 
     carousel:{
@@ -39,17 +40,25 @@ export default StyleSheet.create({
     },
 
     carouselImage:{
-        width: 340, 
+        width: 350, 
         height: 225,
         borderRadius: 5,
         backgroundColor: "#C5C4C8",
+    },
+
+    paginationView:{
+        position: "absolute",
+        alignSelf: "center",        
+        transform:[
+            { translateY: -15}
+        ]
     },
 
     itemBottomBar:{
         width: 350,
         height: 50,        
         bottom: 15,
-        position: 'absolute',
+        position: "absolute",
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "row",
