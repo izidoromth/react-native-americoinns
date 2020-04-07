@@ -46,7 +46,7 @@ export default StyleSheet.create({
         backgroundColor: "#C5C4C8",
     },
 
-    renderItemTouchable:{
+    itemBottomBar:{
         height: 40,
         justifyContent: "space-between",
         alignItems: "center",
@@ -63,7 +63,8 @@ export default StyleSheet.create({
         shadowRadius: 5,
         shadowColor: "#000",
         fontWeight: "bold",
-        fontSize: 17
+        fontSize: 17,
+        fontFamily: ""
     }
 
 });
