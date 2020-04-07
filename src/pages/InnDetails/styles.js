@@ -2,14 +2,14 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
     container:{
-        backgroundColor: "#DFDEF4",
+        backgroundColor: "#F5F1F1",
         flex: 1,
         justifyContent: "flex-start",
         alignItems: "center"
     },
 
     header:{
-        backgroundColor: "#C5C4C8", 
+        backgroundColor: "#F5F1F1", 
         alignSelf: "stretch"
     },
 
@@ -17,9 +17,8 @@ export default StyleSheet.create({
         marginTop: 20,
         marginBottom: 10,
         fontSize: 40,
-        color: "#FFF",
+        color: "#000",
         fontStyle: "italic",
-        fontWeight: "bold",
         alignSelf: "center"
     }
 });

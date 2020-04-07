@@ -5,6 +5,7 @@ import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native';
 import styles from './styles';
 import Carousel from 'react-native-snap-carousel';
 import { useNavigation } from '@react-navigation/native';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 export default function Inns(){
 
@@ -23,27 +24,32 @@ export default function Inns(){
 
         function carouselRender({item}){
             return (
-                <TouchableOpacity activeOpacity={1} onPress={itemPressed}>
-                    <Image style={styles.carouselImage} source={{uri: item}}/>
-                </TouchableOpacity>                
+                <TouchableOpacity 
+                    activeOpacity={1}
+                    key={item.id}
+                    style={styles.flatlistItem}
+                    onPress={itemPressed}>
+                        <Image style={styles.carouselImage} source={{uri: item}}/>
+                </TouchableOpacity>
             )
         }
 
-        return (
-          <View style={styles.flatlistItem}>
-            <Carousel layout={'default'}
-                ref={'carousel'}
-                style={styles.carousel}
-                data={item.images}
-                renderItem={carouselRender}
-                layoutCardOffset={0}
-                sliderWidth={350}
-                itemWidth={350}/>
-            <TouchableOpacity style={styles.itemBottomBar} activeOpacity={1} onPress={itemPressed}>
-                <Text style={styles.renderItemText}>{item.innName}</Text>
-                <Text style={styles.renderItemText}>Ver detalhes</Text>
-            </TouchableOpacity>
-          </View>
+        return (       
+            <View style={styles.flatlistItem}>
+                <Carousel                         
+                    layout={'tinder'}
+                    ref={'carousel'}
+                    style={styles.carousel}
+                    data={item.images}
+                    layoutCardOffset={0}
+                    renderItem={carouselRender}
+                    sliderWidth={350}
+                    itemWidth={340}/>
+                <View style={styles.itemBottomBar}>
+                    <Text style={styles.renderItemText}>{item.innName}</Text>
+                    <Text style={styles.renderItemText}>Ver detalhes</Text>
+                </View>
+            </View>
         )
     }
 

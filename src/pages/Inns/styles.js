@@ -2,14 +2,14 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
     container:{
-        backgroundColor: "#DFDEF4",
+        backgroundColor: "#F5F1F1",
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
     },
 
     header:{
-        backgroundColor: "#C5C4C8", 
+        backgroundColor: "#F5F1F1", 
         alignSelf: "stretch"
     },
 
@@ -17,54 +17,52 @@ export default StyleSheet.create({
         marginTop: 20,
         marginBottom: 10,
         fontSize: 40,
-        color: "#FFF",
+        color: "#4D4D4D",
         fontStyle: "italic",
-        fontWeight: "bold",
         alignSelf: "center"
     },
 
-    flatlist:{    
+    flatlist:{        
     },
 
-    flatlistItem:{
-        marginTop: 20,
-        backgroundColor: "#DFDEF4",
-        borderRadius: 10
+    flatlistItem:{        
+        marginBottom: 15,  
+        backgroundColor: "#F5F1F1",
+        borderRadius: 5
     },
 
     carousel:{
+        borderRadius: 5,
         backgroundColor: "#C5C4C8",
         overlayColor: "#C5C4C8",
         flexDirection: 'row'
     },
 
     carouselImage:{
-        width: 350, 
-        height: 200,
-        borderTopRightRadius: 10,
-        borderTopLeftRadius: 10,
+        width: 340, 
+        height: 225,
+        borderRadius: 5,
         backgroundColor: "#C5C4C8",
     },
 
     itemBottomBar:{
-        height: 40,
+        width: 350,
+        height: 50,        
+        bottom: 15,
+        position: 'absolute',
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "row",
-        backgroundColor: "#C5C4C8",        
-        borderBottomRightRadius: 10,
-        borderBottomLeftRadius: 10
+        backgroundColor: "#F3EEEE55",        
+        borderBottomRightRadius: 5,
+        borderBottomLeftRadius: 5,
     },
 
     renderItemText:{
-        marginLeft: 15,
+        marginLeft: 20,
         marginRight: 15,
-        color: "#FFF",
-        shadowRadius: 5,
-        shadowColor: "#000",
-        fontWeight: "bold",
+        color: '#2A2A2A',
         fontSize: 17,
-        fontFamily: ""
     }
 
 });
