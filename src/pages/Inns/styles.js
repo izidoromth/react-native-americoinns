@@ -27,7 +27,7 @@ export default StyleSheet.create({
     },
 
     flatlistItem:{  
-        marginBottom: 15, 
+        marginBottom: 8, 
         backgroundColor: "#F5F1F1",
         borderRadius: 5,
     },
@@ -39,14 +39,14 @@ export default StyleSheet.create({
         flexDirection: 'row'
     },
 
-    carouselImage:{
+    cardImage:{
         width: 350, 
         height: 225,
         borderRadius: 5,
         backgroundColor: "#C5C4C8",
     },
 
-    paginationView:{
+    pagination:{
         position: "absolute",
         alignSelf: "center",        
         transform:[
@@ -57,7 +57,7 @@ export default StyleSheet.create({
     itemBottomBar:{
         width: 350,
         height: 50,        
-        bottom: 15,
+        bottom: 8,
         position: "absolute",
         justifyContent: "space-between",
         alignItems: "center",
@@ -67,7 +67,7 @@ export default StyleSheet.create({
         borderBottomLeftRadius: 5,
     },
 
-    renderItemText:{
+    cardText:{
         marginLeft: 20,
         marginRight: 15,
         color: '#2A2A2A',

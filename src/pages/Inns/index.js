@@ -31,7 +31,7 @@ export default function Inns(){
                     key={item.id}
                     style={styles.flatlistItem}
                     onPress={itemPressed}>
-                        <Image style={styles.carouselImage} source={{uri: item}}/>
+                        <Image style={styles.cardImage} source={{uri: item}}/>
                 </TouchableOpacity>
             )
         }
@@ -45,17 +45,17 @@ export default function Inns(){
                     data={item.images}
                     layoutCardOffset={0}
                     renderItem={carouselRender}
-                    onSnapToItem={(index) => setImageIndex(index)}
+                    useScrollView={true}
                     sliderWidth={350}
                     itemWidth={350}/>                
                 <View style={styles.itemBottomBar}>
-                    <Text style={styles.renderItemText}>{item.innName}</Text>
-                    <Text style={styles.renderItemText}>Ver detalhes</Text>                     
+                    <Text style={styles.cardText}>{item.innName}</Text>
+                    <Text style={styles.cardText}>Ver detalhes</Text>                     
                 </View>                  
                 <Pagination
                     dotsLength={getDotsLength(item.images.length)}
-                    activeDotIndex={imageIndex}
-                    containerStyle={styles.paginationView}/>
+                    activeDotIndex={0}
+                    containerStyle={styles.pagination}/>
             </View>
         )
     }
