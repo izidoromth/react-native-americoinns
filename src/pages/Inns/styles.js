@@ -50,18 +50,21 @@ export default StyleSheet.create({
         position: "absolute",
         alignSelf: "center",
         flexDirection: "row",
+        alignItems: "center"
     },
 
     dot:{
-        margin: 6,
-        height: 8,
-        width: 8,
+        margin: 4,
+        height: 6,
+        width: 6,
         borderRadius: 4,
         backgroundColor: "#C9C7C7",
         opacity: 0.5
     },
 
     dotSelected:{
+        height: 7,
+        width: 7,
         backgroundColor: '#FFFFFF',
         opacity: 0.8
     },
@@ -74,7 +77,7 @@ export default StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "row",
-        backgroundColor: "#F3EEEE55",        
+        backgroundColor: "#F3EEEEAA",        
         borderBottomRightRadius: 5,
         borderBottomLeftRadius: 5,
     },
@@ -82,7 +85,7 @@ export default StyleSheet.create({
     cardText:{
         marginLeft: 20,
         marginRight: 15,
-        color: '#2A2A2A',
+        color: '#313030',
         fontSize: 17,
     }
 
