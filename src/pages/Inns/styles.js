@@ -30,13 +30,13 @@ export default StyleSheet.create({
         marginBottom: 8, 
         backgroundColor: "#F5F1F1",
         borderRadius: 5,
+        width: 350, 
+        height: 225,
     },
 
-    carousel:{
+    imageSlider:{
         borderRadius: 5,
-        backgroundColor: "#C5C4C8",
-        overlayColor: "#C5C4C8",
-        flexDirection: 'row'
+        backgroundColor: "transparent"
     },
 
     cardImage:{
@@ -48,16 +48,28 @@ export default StyleSheet.create({
 
     pagination:{
         position: "absolute",
-        alignSelf: "center",        
-        transform:[
-            { translateY: -15}
-        ]
+        alignSelf: "center",
+        flexDirection: "row",
+    },
+
+    dot:{
+        margin: 6,
+        height: 8,
+        width: 8,
+        borderRadius: 4,
+        backgroundColor: "#C9C7C7",
+        opacity: 0.5
+    },
+
+    dotSelected:{
+        backgroundColor: '#FFFFFF',
+        opacity: 0.8
     },
 
     itemBottomBar:{
         width: 350,
         height: 50,        
-        bottom: 8,
+        bottom: 0,
         position: "absolute",
         justifyContent: "space-between",
         alignItems: "center",

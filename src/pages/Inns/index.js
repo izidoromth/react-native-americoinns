@@ -3,7 +3,7 @@ import { Feather } from '@expo/vector-icons'
 import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native';
 
 import styles from './styles';
-import Carousel, { Pagination } from 'react-native-snap-carousel';
+import ImageSlider from 'react-native-image-slider';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
@@ -23,44 +23,39 @@ export default function Inns(){
 
     function renderItem({item,index}){
 
-        function carouselRender({item}){
-            return (
-                <TouchableOpacity 
-                    activeOpacity={1}
-                    key={item.id}
-                    style={styles.flatlistItem}
-                    onPress={itemPressed}>
-                        <Image style={styles.cardImage} source={{uri: item}}/>
-                </TouchableOpacity>
-            )
-        }
-
-        function handleImageIndex(_imageIndex){
-            var a = inns.slice(0);
-            a[index].imageIndex = _imageIndex
-            setInns(a);
-        }
-
         return (       
             <View style={styles.flatlistItem}>                  
-                <Carousel                         
-                    layout={'tinder'}
-                    ref={'carousel'}
-                    style={styles.carousel}
-                    data={item.images}
-                    layoutCardOffset={0}
-                    renderItem={carouselRender}
-                    onBeforeSnapToItem={handleImageIndex}
-                    sliderWidth={350}
-                    itemWidth={350}/>                
+                <ImageSlider
+                    style={styles.imageSlider}
+                    images={item.images}
+                    customSlide={({ index, item, style, width }) => (
+                          <TouchableOpacity 
+                            activeOpacity={1}
+                            key={item.id}
+                            style={styles.flatlistItem}
+                            onPress={itemPressed}>
+                                <Image style={styles.cardImage} source={{uri: item}}/>
+                            </TouchableOpacity>
+                      )}
+                    customButtons={(position, move) => (
+                    <View style={styles.pagination}>
+                        {item.images.map((image, index) => {
+                        return (
+                            <TouchableHighlight
+                            key={index}
+                            underlayColor="#ccc"
+                            onPress={() => move(index)}
+                            >
+                            <View style={[styles.dot, position === index && styles.dotSelected]}></View>
+                            </TouchableHighlight>
+                        );
+                        })}
+                    </View>
+                    )}/>               
                 <View style={styles.itemBottomBar}>
                     <Text style={styles.cardText}>{item.innName}</Text>
                     <Text style={styles.cardText}>Ver detalhes</Text>                     
-                </View>                  
-                <Pagination
-                    dotsLength={getDotsLength(item.images.length)}
-                    activeDotIndex={item.imageIndex}
-                    containerStyle={styles.pagination}/>
+                </View>               
             </View>
         )
     }
