@@ -11,12 +11,11 @@ export default function Inns(){
 
     const navigation = useNavigation();
     
-    const inns = [{id: '1', innName: 'MaceioInn', images: ['https://a0.muscache.com/im/pictures/79309304/d7cda214_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817824/0b506e6c_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817947/2bc83a52_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/a612c8ce-bc1b-48eb-8e99-e5c5d85049b9.jpg?aki_policy=xx_large']}, 
-                  {id: '2', innName: 'FortalezaInn', images: ['https://a0.muscache.com/im/pictures/62817947/2bc83a52_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/a612c8ce-bc1b-48eb-8e99-e5c5d85049b9.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/79309304/d7cda214_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817824/0b506e6c_original.jpg?aki_policy=xx_large']}, 
-                  {id: '3', innName: 'SalvadorInn', images: ['https://a0.muscache.com/im/pictures/62817824/0b506e6c_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/79309304/d7cda214_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/a612c8ce-bc1b-48eb-8e99-e5c5d85049b9.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817947/2bc83a52_original.jpg?aki_policy=xx_large']}, 
-                  {id: '4', innName: 'RioInn', images: ['https://a0.muscache.com/im/pictures/a612c8ce-bc1b-48eb-8e99-e5c5d85049b9.jpg?aki_policy=xx_large', 'https://a0.muscache.com/im/pictures/79309304/d7cda214_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817824/0b506e6c_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817947/2bc83a52_original.jpg?aki_policy=xx_large']}]
-          
-    const [imageIndex, setImageIndex] = useState(0);              
+    const [inns, setInns] = 
+        useState([{id: '1', innName: 'MaceioInn', imageIndex: 0, images: ['https://a0.muscache.com/im/pictures/79309304/d7cda214_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817824/0b506e6c_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817947/2bc83a52_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/a612c8ce-bc1b-48eb-8e99-e5c5d85049b9.jpg?aki_policy=xx_large']}, 
+                  {id: '2', innName: 'FortalezaInn', imageIndex: 0, images: ['https://a0.muscache.com/im/pictures/62817947/2bc83a52_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/a612c8ce-bc1b-48eb-8e99-e5c5d85049b9.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/79309304/d7cda214_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817824/0b506e6c_original.jpg?aki_policy=xx_large']}, 
+                  {id: '3', innName: 'SalvadorInn', imageIndex: 0, images: ['https://a0.muscache.com/im/pictures/62817824/0b506e6c_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/79309304/d7cda214_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/a612c8ce-bc1b-48eb-8e99-e5c5d85049b9.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817947/2bc83a52_original.jpg?aki_policy=xx_large']}, 
+                  {id: '4', innName: 'RioInn', imageIndex: 0, images: ['https://a0.muscache.com/im/pictures/a612c8ce-bc1b-48eb-8e99-e5c5d85049b9.jpg?aki_policy=xx_large', 'https://a0.muscache.com/im/pictures/79309304/d7cda214_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817824/0b506e6c_original.jpg?aki_policy=xx_large','https://a0.muscache.com/im/pictures/62817947/2bc83a52_original.jpg?aki_policy=xx_large']}]);          
 
     function itemPressed(){
         navigation.navigate('InnDetails');
@@ -36,6 +35,12 @@ export default function Inns(){
             )
         }
 
+        function handleImageIndex(_imageIndex){
+            var a = inns.slice(0);
+            a[index].imageIndex = _imageIndex
+            setInns(a);
+        }
+
         return (       
             <View style={styles.flatlistItem}>                  
                 <Carousel                         
@@ -45,7 +50,7 @@ export default function Inns(){
                     data={item.images}
                     layoutCardOffset={0}
                     renderItem={carouselRender}
-                    useScrollView={true}
+                    onBeforeSnapToItem={handleImageIndex}
                     sliderWidth={350}
                     itemWidth={350}/>                
                 <View style={styles.itemBottomBar}>
@@ -54,7 +59,7 @@ export default function Inns(){
                 </View>                  
                 <Pagination
                     dotsLength={getDotsLength(item.images.length)}
-                    activeDotIndex={0}
+                    activeDotIndex={item.imageIndex}
                     containerStyle={styles.pagination}/>
             </View>
         )
