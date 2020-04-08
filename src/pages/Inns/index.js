@@ -3,9 +3,10 @@ import { Feather } from '@expo/vector-icons'
 import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native';
 
 import styles from './styles';
+
 import ImageSlider from 'react-native-image-slider';
 import { useNavigation } from '@react-navigation/native';
-import { TouchableHighlight, ScrollView } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function Inns(){
 

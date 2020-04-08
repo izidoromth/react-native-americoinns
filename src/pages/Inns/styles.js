@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native'
-import { hydrate } from 'react-dom';
 
 export default StyleSheet.create({
     container:{
@@ -21,9 +20,6 @@ export default StyleSheet.create({
         color: "#4D4D4D",
         fontStyle: "italic",
         alignSelf: "center"
-    },
-
-    flatlist:{       
     },
 
     flatlistItem:{  
