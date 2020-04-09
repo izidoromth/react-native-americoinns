@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { Constants } from 'expo';
 
 export default StyleSheet.create({
     container:{
@@ -7,12 +8,6 @@ export default StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
-
-    header:{
-        backgroundColor: "#F5F1F1", 
-        alignSelf: "stretch"
-    },
-
     topTitle:{
         marginTop: 20,
         marginBottom: 10,

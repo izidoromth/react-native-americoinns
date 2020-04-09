@@ -27,7 +27,7 @@ export default StyleSheet.create({
     },
 
     imageSliderView:{
-        marginTop: Expo.Constants.statusBarHeight
+        marginTop: 20
     },
 
     imageSlider:{
