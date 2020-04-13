@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Feather } from '@expo/vector-icons'
 import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native';
 
 import styles from './styles';
@@ -63,6 +62,7 @@ export default function Inns(){
                     scrollEnabled={false}
                     showsVerticalScrollIndicator={false}
                     data={inns}
+                    key={(index) => index}
                     renderItem={({item, index}) => (
                         <CardItem
                             flatindex={index}

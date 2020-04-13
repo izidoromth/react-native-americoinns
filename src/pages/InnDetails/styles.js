@@ -8,26 +8,91 @@ export default StyleSheet.create({
     container:{
         backgroundColor: "#F5F1F1",
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
+        flexDirection: "column",        
+        justifyContent: "flex-start",
+        alignItems: "flex-start"
     },
 
-    header:{
-        backgroundColor: "#F5F1F1", 
-        alignSelf: "stretch"
+    innHeader:{
+        width: width,
+        padding: 15,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        backgroundColor: "#C6C5CA"
     },
 
-    topTitle:{
-        marginTop: 20,
-        marginBottom: 10,
-        fontSize: 40,
-        color: "#4D4D4D",
-        fontStyle: "italic",
-        alignSelf: "center"
+    innInfo:{
+        flexDirection: "column"
+    },
+
+    innTitle:{
+        fontSize: 30,
+        color: "#313030"
+    },
+
+    innAddress:{
+        color: "#5D5A5A"
+    },
+
+    innDailyPrice:{
+        fontSize: 30,
+        color: "#181818"
+    },
+
+    innDetails:{
+        paddingTop: 15,
+        flexDirection: "column",
+    },
+
+    featureHeader:{
+        marginLeft: 15,
+        flexDirection: 'row', 
+        alignItems: 'center'
+    },
+
+    featureTitle:{        
+        paddingLeft: 10,
+        fontSize: 17,
+        color: "#49494B"
+    },
+
+    descriptionText:{
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingTop: 8,
+        paddingBottom: 8,
+        color: "#6D6D71"
+    },
+
+    horizontalSeparator:{
+        marginTop: 5,
+        marginBottom: 5,
+        marginLeft: 15,
+        marginRight: 15,
+        borderBottomColor: "#A09898", 
+        borderBottomWidth: 1, 
+        width: width - 30
+    },
+
+    amenitiesLineIcon:{
+        margin: 5,
+    },
+
+    amenitieItem:{
+        flexDirection: "row",
+        alignItems: "center",
+        padding: 5,
+        marginLeft: 10,
+    },
+
+    amenitiesList:{
+        paddingBottom: 30,
     },
 
     imageSliderView:{
-        marginTop: 20
+        marginTop: Expo.Constants.statusBarHeight,
+        height: 225,
     },
 
     imageSlider:{

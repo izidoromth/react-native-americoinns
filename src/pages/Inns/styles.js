@@ -8,8 +8,9 @@ export default StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
+    
     topTitle:{
-        marginTop: 20,
+        marginTop: Expo.Constants.statusBarHeight,
         marginBottom: 10,
         fontSize: 40,
         color: "#4D4D4D",
