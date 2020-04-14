@@ -41,8 +41,12 @@ export default StyleSheet.create({
     },
 
     innDetails:{
-        paddingTop: 15,
+        padding: 15,
         flexDirection: "column",
+    },
+
+    featureView:{
+        paddingBottom: 20,
     },
 
     featureHeader:{
@@ -62,7 +66,7 @@ export default StyleSheet.create({
         paddingRight: 20,
         paddingTop: 8,
         paddingBottom: 8,
-        color: "#6D6D71"
+        color: "#312F2F"
     },
 
     horizontalSeparator:{
@@ -71,8 +75,7 @@ export default StyleSheet.create({
         marginLeft: 15,
         marginRight: 15,
         borderBottomColor: "#A09898", 
-        borderBottomWidth: 1, 
-        width: width - 30
+        borderBottomWidth: 1,
     },
 
     amenitiesLineIcon:{
@@ -86,8 +89,66 @@ export default StyleSheet.create({
         marginLeft: 10,
     },
 
+    amenitieText:{
+        color:"#312F2F"
+    },
+
     amenitiesList:{
-        paddingBottom: 30,
+    },
+
+    reviewLayout:{
+        padding: 10,
+        marginLeft: 25,
+        marginRight: 25,
+        borderBottomColor: "#A09898",
+        borderBottomWidth: 1,
+    },
+
+    reviewPicture:{
+        height: 46, 
+        width: 46, 
+        borderRadius: 23
+    },
+
+    reviewNameText:{
+        padding: 5,
+        color: "#252424"
+    },
+
+    reviewComment:{
+        marginLeft: 10,
+        flex: 1,
+    },
+
+    reviewCommentText:{
+        color:"#312F2F"        
+    },
+
+    rentLayout:{
+        width: width,
+        height: 60, 
+        backgroundColor: "#E9E5E5", 
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between"
+    },
+
+    rentButton:{
+        width: 100, 
+        height: 40, 
+        borderRadius: 20, 
+        backgroundColor: "#FAC918", 
+        marginRight: 10,
+        alignItems: "center",
+        justifyContent: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 1,
+        shadowRadius: 1,        
+        elevation: 24,
     },
 
     imageSliderView:{
